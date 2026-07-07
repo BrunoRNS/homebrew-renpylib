@@ -5,6 +5,7 @@ build-backend = "flit_core.buildapi"
 [project]
 name = "homebrew_renpylib"
 authors = [{name = "BrunoRNS", email = "brunorns05@outlook.com"}]
+requires-python = ">=3.10"
 license = "MIT"
 license-files = ["LICENSE"]
 dynamic = ["version", "description"]

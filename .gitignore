@@ -4,3 +4,4 @@ dist/
 venv/
 .vscode/
 /game/
+_mcp/

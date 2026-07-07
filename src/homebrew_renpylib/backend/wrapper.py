@@ -114,6 +114,19 @@ def play_sound(sound: str, loop: bool = False) -> None | NoReturn:
     raise NotImplementedError(
         "play_sound is not implemented in this environment."
     )
+    
+def sound_duration(sound: str) -> float | NoReturn:
+    """Get the duration of a sound.
+
+    Args:
+        sound (str): The sound to get the duration of.
+
+    Raises:
+        NotImplementedError: When called in an environment without wrapper.rpy.
+    """
+    raise NotImplementedError(
+        "sound_duration is not implemented in this environment."
+    )
 
 def stop_sound() -> None | NoReturn:
     """Stop the currently playing sound.
@@ -147,4 +160,24 @@ def stop_music() -> None | NoReturn:
     """
     raise NotImplementedError(
         "stop_music is not implemented in this environment."
+    )
+    
+def quit_game() -> None | NoReturn:
+    """Quit the game.
+
+    Raises:
+        NotImplementedError: When called in an environment without wrapper.rpy.
+    """
+    raise NotImplementedError(
+        "quit_game is not implemented in this environment."
+    )
+    
+def restart_game() -> None | NoReturn:
+    """Restart the game.
+
+    Raises:
+        NotImplementedError: When called in an environment without wrapper.rpy.
+    """
+    raise NotImplementedError(
+        "restart_game is not implemented in this environment."
     )

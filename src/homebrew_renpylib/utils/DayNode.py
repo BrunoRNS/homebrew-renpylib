@@ -28,15 +28,15 @@ class DayNode(metaclass=DayNodeMeta):
                 weight = 1
                 terminal = "good_end"
     """
-    label: Optional[str] = None   # if None, use class name lowercased
+    label: Optional[str] = None
     weight: float = 1.0
     music: Optional[str] = None
     extra: Dict[str, Any] = {}
-    terminal: Optional[str] = None   # optional terminal label
+    terminal: Optional[str] = None
 
     @classmethod
-    def to_graph(cls, root_label: Optional[str] = None,
-                 default_terminal: str = "fim") -> DayGraph:
+    def to_graph(cls, default_terminal: str,
+                 root_label: Optional[str] = None) -> DayGraph:
         """
         Convert this class hierarchy into a DayGraph.
         The top-level class becomes the root.

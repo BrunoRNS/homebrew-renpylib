@@ -31,7 +31,7 @@ class DayGraph:
         graph.advance("morning", day_manager, music_player)
     """
     
-    def __init__(self, root: str, default_terminal: str = "fim"):
+    def __init__(self, root: str, default_terminal: str):
         """
         Args:
             root: Label of the very first day.
@@ -365,9 +365,6 @@ class DayGraph:
                 return True
         return False
 
-    # ------------------------------------------------------------------
-    # Persistence of graph structure (optional)
-    # ------------------------------------------------------------------
     def to_dict(self) -> Dict[str, Any]:
         """Serialize the graph structure (edges, terminals) to a JSON-friendly dict."""
         edges: Dict[str, List[Dict[str, Any]]] = {}
