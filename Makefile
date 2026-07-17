@@ -21,7 +21,7 @@ WHL_FILES = $(wildcard $(DIST_DIR)/*.whl)
 WRAPPER_FILE = wrapper.rpy
 TESTS := $(patsubst tests/test_%,%,$(wildcard tests/test_*))
 
-.PHONY: all build test test-% android-build android-run clean check-env
+.PHONY: all build test test-% android-build android-run clean check-env generate_sound
 
 all: build
 
@@ -56,4 +56,16 @@ android-run:
 clean:
 	$(PYTHON) -c "import shutil; from pathlib import Path; shutil.rmtree('dist', ignore_errors=True); shutil.rmtree('out/apk', ignore_errors=True); [shutil.rmtree(path, ignore_errors=True) for path in Path('tests').glob('**/python-packages')]; [Path(path).unlink(missing_ok=True) for path in Path('tests').glob('**/wrapper.rpy')]; [shutil.rmtree(path, ignore_errors=True) for path in Path('samples').glob('**/python-packages')]; [Path(path).unlink(missing_ok=True) for path in Path('samples').glob('**/wrapper.rpy')]"
 	@echo "All build artifacts and temporary copies removed."
+
+generate_sound: generate_sound_venv
+ifeq ($(OS),Windows_NT)
+	generate_sound_venv\Scripts\pip.exe install -r sound_requirements.txt
+	generate_sound_venv\Scripts\python.exe -m generate_sound
+else
+	./generate_sound_venv/bin/pip install -r sound_requirements.txt
+	./generate_sound_venv/bin/python -m generate_sound
+endif
+
+generate_sound_venv:
+	$(PYTHON) -m venv generate_sound_venv
 

@@ -5,3 +5,4 @@ venv/
 .vscode/
 /game/
 _mcp/
+generate_sound_venv

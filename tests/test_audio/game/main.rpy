@@ -4,8 +4,8 @@
 # Requires the library wheel and wrapper.rpy (injected by the Makefile).
 # Optional: place .ogg files in audio/ (silent files are OK).
 
-define audio_test_music = "audio/test_music.ogg"
-define audio_test_sound = "audio/test_sound.ogg"
+define audio_test_music = "audio/aquarela.ogg"
+define audio_test_sound = "audio/tada.ogg"
 
 label start:
     scene black # type: ignore
